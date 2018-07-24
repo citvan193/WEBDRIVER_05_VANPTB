@@ -20,7 +20,46 @@ public class Topic_02_Xpath_Css_Locator {
 	  driver = new FirefoxDriver();
 	  driver.manage().window().maximize();
   }
+  
   @Test
+  public void TC_01_CheckNavigatePage() {
+	  //Step 01 - Truy cap vao trang: http://live.guru99.com
+	  driver.get("http://live.guru99.com/");
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  
+	  //Step 02 - Kiem tra title cua page la: "Home page"
+	  String homePageTitle = driver.getTitle();
+	  Assert.assertEquals(homePageTitle, "Home page");
+	  
+	  //Step 03 - Click vao link "My Account" de toi trang dang nhap
+	  driver.findElement(By.xpath("//div[@class='footer']//a[text()='My Account']")).click();
+	  
+	  //Step 04 - Click CREATE AN ACCOUNT button de toi trang dang ky tai khoan
+	  driver.findElement(By.xpath("//a[@title='Create an Account']")).click();
+	  
+	  //Step 05 - Back lai trang dang nhap
+	  driver.navigate().back();
+	  
+	  //Step 06 - Kiem tra URL cua page dang nhap la: http://live.guru99.com/index.php/customer/account/login/
+	  //Ve lai page login thanh cong
+	  Assert.assertTrue(driver.findElement(By.xpath("//form[@id='login-form']")).isDisplayed());
+	  
+	  String loginURL = driver.getCurrentUrl();
+	  Assert.assertEquals(loginURL, "http://live.guru99.com/index.php/customer/account/login/");
+	  
+	  //Step 07 - Forward toi trang tao tai khoan
+	  driver.navigate().forward();
+	  //Step 08 - Kiem tra url của page tao tai khoan la: http://live.guru99.com/index.php/customer/account/create/
+	  //Ve lai page register thanh cong
+	  Assert.assertTrue(driver.findElement(By.xpath("//form[@id='form-validate']")).isDisplayed());
+	  
+	  String registerURL = driver.getCurrentUrl();
+	  Assert.assertEquals(registerURL, "http://live.guru99.com/index.php/customer/account/create/");
+	  
+  }
+  
+  
+  @Test (enabled = false)
   public void TC_02_LoginEmpty() {
 	  driver.get("http://live.guru99.com/");
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -31,7 +70,7 @@ public class Topic_02_Xpath_Css_Locator {
 	  String PasswordEmptyMessage = driver.findElement(By.id("advice-required-entry-email")).getText();
 	  Assert.assertEquals(PasswordEmptyMessage, "This is a required field.");
   }
-  @Test
+  @Test (enabled = false)
   public void TC_03_LoginWithEmailInvalid() {
 	  driver.get("http://live.guru99.com/");
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -42,7 +81,7 @@ public class Topic_02_Xpath_Css_Locator {
 	  Assert.assertEquals(EmailInvalidMessage, "Please enter a valid email address. For example johndoe@domain.com.");
 	 
   }
-  @Test
+  @Test (enabled = false)
   public void TC_04_LoginWithPassIncorect() {
 	  driver.get("http://live.guru99.com/");
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -53,7 +92,7 @@ public class Topic_02_Xpath_Css_Locator {
 	  Assert.assertEquals(PasswordIncorectMessage, "Please enter 6 or more characters without leading or trailing spaces.");
 	  
   }
-  @Test
+  @Test (enabled = false)
   public void TC_05_CreateAnAccount() {
 	  driver.get("http://live.guru99.com/");
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
