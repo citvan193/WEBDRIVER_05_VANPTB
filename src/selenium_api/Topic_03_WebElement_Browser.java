@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -17,12 +18,13 @@ public class Topic_03_WebElement_Browser {
  
   @BeforeClass
   public void beforeClass() {
-	  driver = new FirefoxDriver();
-	  //System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
-	  //driver = new ChromeDriver();
+	  //driver = new FirefoxDriver();
+	  System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  driver.manage().window().maximize();
 	  driver.get("http://daominhdam.890m.com/");
-	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  
   }
   
   @Test (enabled = false)
