@@ -1,7 +1,6 @@
 package selenium_api;
 
 
-import java.awt.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 

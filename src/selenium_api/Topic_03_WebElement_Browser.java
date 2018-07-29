@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -18,9 +19,11 @@ public class Topic_03_WebElement_Browser {
  
   @BeforeClass
   public void beforeClass() {
-	  //driver = new FirefoxDriver();
+	  //System.setProperty("webdriver.ie.driver", ".\\driver\\IEDriverServer.exe");
+	  //driver = new InternetExplorerDriver();
 	  System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 	  driver = new ChromeDriver();
+	  driver = new FirefoxDriver();
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  driver.manage().window().maximize();
 	  driver.get("http://daominhdam.890m.com/");
