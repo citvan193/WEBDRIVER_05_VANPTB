@@ -72,13 +72,43 @@ public class Topic_04_Custom_Dropdowlist {
 		
 	}
 	
-	@Test 
+	@Test (enabled = false)
 	public void TC_04_VueJS() throws InterruptedException {
 		driver.get("https://mikerodham.github.io/vue-dropdowns/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		selectCustomDropdowlist("//li[@class='dropdown-toggle']", "//ul/li", "Second Option");
 		Assert.assertTrue(driver.findElement(By.xpath("//li[@class='dropdown-toggle' and contains(text(),'Second Option')]")).isDisplayed());
+		
+	}
+	
+	@Test 
+	public void TC_05_Jquery() throws InterruptedException {
+		driver.get("http://indrimuska.github.io/jquery-editable-select/");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		//selectCustomDropdowlist("//li[@class='dropdown-toggle']", "//ul/li", "Second Option");
+		//Assert.assertTrue(driver.findElement(By.xpath("//li[@class='dropdown-toggle' and contains(text(),'Second Option')]")).isDisplayed());
+		
+	}
+	
+	@Test (enabled = false)
+	public void TC_06_Multiple_Select() throws InterruptedException {
+		driver.get("http://wenzhixin.net.cn/p/multiple-select/docs/");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		//selectCustomDropdowlist("//li[@class='dropdown-toggle']", "//ul/li", "Second Option");
+		//Assert.assertTrue(driver.findElement(By.xpath("//li[@class='dropdown-toggle' and contains(text(),'Second Option')]")).isDisplayed());
+		
+	}
+	
+	@Test (enabled = false)
+	public void TC_07_VueJS() throws InterruptedException {
+		driver.get("https://semantic-ui.com/modules/dropdown.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		//selectCustomDropdowlist("//li[@class='dropdown-toggle']", "//ul/li", "Second Option");
+		//Assert.assertTrue(driver.findElement(By.xpath("//li[@class='dropdown-toggle' and contains(text(),'Second Option')]")).isDisplayed());
 		
 	}
 	
