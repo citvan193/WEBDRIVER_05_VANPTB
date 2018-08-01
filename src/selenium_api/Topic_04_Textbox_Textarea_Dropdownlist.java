@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -74,24 +73,9 @@ public class Topic_04_Textbox_Textarea_Dropdownlist {
 		
 	}
     
-    @Test (enabled = false)
-	public void TC_02_Custom_Dropdownlist() throws InterruptedException {
-		driver.get("http://jqueryui.com/resources/demos/selectmenu/default.html");
-		Select numberList = new Select(driver.findElement(By.xpath("//select[@id='number']")));
-		java.util.List<WebElement> option = numberList.getOptions();
-		//int numberItem = numberList.getOptions().size();
-			for (int i = 0; i < option.size(); i++) {
-				option.get(i).getText();
-				if(option.equals("19")) {
-					option.get(i).click();
-					Assert.assertEquals(numberList.getFirstSelectedOption().getText(), "19");
-				}
-				}
-			Thread.sleep(5000);
-	}
 	
     @Test 
-	public void TC_03_Textbox_Textarea() {
+	public void TC_02_Textbox_Textarea() {
     	driver.get("http://demo.guru99.com/v4/");
     	driver.findElement(By.xpath("//input[@name='uid']")).sendKeys("mngr134681");
     	driver.findElement(By.xpath("//input[@name='password']")).sendKeys("mudUhaj");
