@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite"> 
+<test name="Run on FireFox">
+<parameter name="browser" value ="firefox"/>
+			<classes>
+			<class name="selenium_testng.TestNG_05_Parameter_MultiBrowser" />
+		</classes>
+	</test> 
+</suite> 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="tests" name="Suite" thread-count ="2"> 
+<test name="Run on FireFox">
+<parameter name="browser" value ="firefox"/>
+			<classes>
+			<class name="selenium_testng.TestNG_05_Parameter_MultiBrowser" />
+		</classes>
+	</test> 
+	<test name="Run on Chrome">
+	<parameter name="browser" value ="chrome"/>
+			<classes>
+			<class name="selenium_testng.TestNG_05_Parameter_MultiBrowser" />
+		</classes>
+	</test>
+</suite> 
